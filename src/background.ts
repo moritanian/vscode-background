@@ -112,13 +112,8 @@ class Background {
         let safety: boolean = false;
 
         getIP().then((ip: string) => {
-            if (firstload) { // Set current ip address as 'safety place'
-
-                this.saveSafetyIPList([ip]);
-                safety = true;
-            } else { // check current IP is safety?
-                safety = (this.getSafetyIPList() || []).indexOf(ip) !== -1;
-            }
+            // check current IP is safety?
+            safety = (this.getSafetyIPList() || []).indexOf(ip) !== -1;
             if (!safety && fileType != FileType.empty) {
                 this.uninstall();
                 // vscode.commands.executeCommand('workbench.action.reloadWindow');
@@ -167,15 +162,7 @@ class Background {
     }
 
     private getSafetyIPList(): string[] {
-        //let info: {safetyIPList : string[] } = this.getConfigContent();
-        //return info.safetyIPList;
         return this.config.safetyIPList;
-    }
-
-    private saveSafetyIPList(safetyIPList: string[]) {
-        let config = this.getConfigContent();
-        config.safetyIPList = safetyIPList;
-        this.saveConfigContent(config);
     }
 
     /**
