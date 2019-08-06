@@ -1,72 +1,62 @@
-# vscode-background
+# vscode-safety-background
+[![Version](https://vsmarketplacebadge.apphb.com/version/moritanian.safety-background.svg)](https://vsmarketplacebadge.apphb.com/version/moritanian.safety-background.svg)
 
-[![Version](https://vsmarketplacebadge.apphb.com/version/shalldie.background.svg)](https://marketplace.visualstudio.com/items?itemName=shalldie.background)
-[![Installs](https://vsmarketplacebadge.apphb.com/installs/shalldie.background.svg)](https://marketplace.visualstudio.com/items?itemName=shalldie.background)
-[![Ratings](https://vsmarketplacebadge.apphb.com/rating/shalldie.background.svg)](https://vsmarketplacebadge.apphb.com/rating/shalldie.background.svg)
 
-## Add a lovely background-image to your vscode.
+## Add a safety and lovely background-image to your vscode.
 
-GitHub: [https://github.com/shalldie/vscode-background](https://github.com/shalldie/vscode-background)
+GitHub: [https://github.com/moritanian/vscode-background](https://github.com/moritanian/vscode-background)
 
-Vscode Market: [https://marketplace.visualstudio.com/items?itemName=shalldie.background](https://marketplace.visualstudio.com/items?itemName=shalldie.background)
+Vscode Market: [https://marketplace.visualstudio.com/items?itemName=moritanian.safety-background](https://marketplace.visualstudio.com/items?itemName=moritanian.safety-background)
 
-## It looks like:
 
-![](https://user-images.githubusercontent.com/9987486/40583705-7105dda8-61c6-11e8-935a-3c5d475a1eb1.gif)
+Setting a background image to the editor you normally use and turning it into a pain editor is a concern for many engineers, and each time a new editor appears, a method for setting a cute editor has been proposed. It's happy to be able to code with your favorite characters. However, when used in public places such as workplace or school, you would be gave cold look from othres. Therefore, I propose a safe editor that identifies the location used by global IP and displays a background image only when you are at home. This plugin supports that function.
 
-## Warns 警告：
+![](https://raw.githubusercontent.com/moritanian/vscode-background/gh-pages/static/explanation.png)
 
-> **本插件是通过修改 vscode 的 css 文件的方式运行**  
-> 所以会在初次安装，或者 vscode 升级的时候，出现以下提示，请选择 【不再提示】:
+## Warns：
 >
-> **This extension works by editting the vscode's css file.**  
+> **This extension works by editting the vscode's css file.**
 > So, a information appears while the first time to install or vscode update.U can click the [never show again] to avoid it.
 
-![](https://user-images.githubusercontent.com/9987486/40583926-b1fb5398-61ca-11e8-8271-4ac650d158d3.png)
+![](https://raw.githubusercontent.com/moritanian/vscode-background/gh-pages/static/warning.png)
 
 This is the reason:
 
 ![](https://user-images.githubusercontent.com/9987486/40583775-91d4c8d6-61c7-11e8-9048-8c5538a32399.png)
 
-## Config 配置项
+## Config
 
 | Name                      |      Type       | Description                                                                                 |
 | :------------------------ | :-------------: | :------------------------------------------------------------------------------------------ |
-| `background.enabled`      |    `Boolean`    | 插件是否启用 <br> If background enabled.                                                    |
-| `background.useDefault`   |    `Boolean`    | 是否使用默认图片 <br> If use default images.                                                |
-| `background.customImages` | `Array<String>` | 自定义图片，最多 3 个<br> Your Your custom Images(Max length is 3)                          |
-| `background.style`        |    `Object`     | 自定义样式 <br> Custom style                                                                |
-| `background.styles`       | `Array<Object>` | 每个图片的独立样式 <br> Style of each image.                                                |
-| `background.useFront`     |    `Boolean`    | 前景图/背景图。 在代码上面还是下面 <br> `true`:On the top of code. `false`: Behind the code |
+| `safetyBackground.enabled`      |    `Boolean`    | If background enabled.                                                    |
+| `safetyBackground.safetyIPList` | `Array<String>` | IP address list to display background image.                              |
+| `safetyBackground.useDefault`   |    `Boolean`    | If use default images.                                                |
+| `safetyBackground.customImages` | `Array<String>` | Your Your custom Images(Max length is 3)                          |
+| `safetyBackground.style`        |    `Object`     | Custom style                                                                |
+| `safetyBackground.styles`       | `Array<Object>` | Style of each image.                                                |
+| `safetyBackground.useFront`     |    `Boolean`    | `true`:On the top of code. `false`: Behind the code |
 
-## Notice 提示
-
-**http** 协议的外链图片在当前版本不能使用(vscode 限制)，需要用 **https** 协议开头的外链地址。
+## Notice
 
 You should use protocol **https** instead of **http** to the image,which is not support by vscode now.
 
-## Uninstall 卸载
+## Uninstall
 
-    Set the config  {"background.enabled": false}  in settings.json,then uninstall the plugin.
-    在 settings.json 中设置 {"background.enabled": false} ，然后再删除插件。如果直接删除插件会有遗留，就需要重装vscode了。
+    Set the config  {"safetyBackground.enabled": false}  in settings.json,then uninstall the plugin.
 
-### Q&A 常见问题:
+### Q&A:
 
 ---
 
     Q:It seems that nothing happens after installing the extension?
-    Q:安装完插件后，似乎没有反应？
 
     A:Make sure to have the administrator authority！！
-    A:如果不能使用，请确保你有管理员权限！！
 
 ---
 
     Q:How to get the administrator authority?
-    Q:怎么获取管理员权限呢？ =。=
 
     A:In windows,click right button on the vscode's icon,then check the [run with the administrator authority].
-    A:在windows环境中，可以右键单击vscode的图标，选择【以管理员身份运行】。
 
 ---
 
@@ -75,8 +65,10 @@ In ubuntu:[https://github.com/shalldie/vscode-background/issues/6](https://githu
 Press F1,and you can get it by enter **ext install background** in your vscode. (～￣ ▽ ￣)～
 <br />
 <br />
-你可以在 vscode 中，按下 F1，然后输入 **ext install background** 来下载她 (～￣ ▽ ￣)～
 
 ---
+
+## Materials
+Character images were generated in https://make.girls.moe/#/.
 
 **Enjoy!**
