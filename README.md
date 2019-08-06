@@ -36,6 +36,31 @@ This is the reason:
 | `safetyBackground.styles`       | `Array<Object>` | Style of each image.                                                |
 | `safetyBackground.useFront`     |    `Boolean`    | `true`:On the top of code. `false`: Behind the code |
 
+### Example
+```
+{
+    "safetyBackground.safetyIPList": ["x.x.x.x"],
+    "safetyBackground.enabled": true,
+    "safetyBackground.useFront": true,
+    "safetyBackground.useDefault": false,
+    "safetyBackground.customImages": [
+      "path/to/hoge.png",
+      "path/to/fuga.png"
+    ],
+    "safetyBackground.style": {
+      "content": "''",
+      "pointer-events": "none",
+      "position": "absolute",
+      "z-index": "99999",
+      "width": "100%",
+      "height": "100%",
+      "background-position": "100% 100%",
+      "background-repeat": "no-repeat",
+      "background-size": "200px",
+      "opacity": 0.3
+    }
+}
+```
 ## Notice
 
 You should use protocol **https** instead of **http** to the image,which is not support by vscode now.
