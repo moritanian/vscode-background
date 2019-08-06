@@ -2,7 +2,7 @@
     "name": "safety-background",
     "displayName": "safety-background",
     "description": "A simple tool to make your vscode's background look better!",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "publisher": "moritanian",
     "repository": {
         "type": "git",
