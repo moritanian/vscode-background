@@ -1,12 +1,12 @@
 {
-    "name": "background",
-    "displayName": "background",
+    "name": "safety-background",
+    "displayName": "safety-background",
     "description": "A simple tool to make your vscode's background look better!",
-    "version": "1.1.19",
-    "publisher": "shalldie",
+    "version": "1.0.0",
+    "publisher": "moritanian",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/shalldie/vscode-background.git"
+        "url": "git+https://github.com/moritanian/vscode-background.git"
     },
     "engines": {
         "vscode": "^1.17.0"
@@ -22,7 +22,7 @@
     "contributes": {
         "commands": [
             {
-                "command": "extension.background.info",
+                "command": "extension.safety_background.info",
                 "title": "Background - Info"
             }
         ],
@@ -30,17 +30,17 @@
             "type": "object",
             "title": "Plugin background config. background 插件配置",
             "properties": {
-                "background.enabled": {
+                "safetyBackground.enabled": {
                     "type": "boolean",
                     "default": true,
                     "description": "Plugin background enabled.background 插件是否启用"
                 },
-                "background.useFront": {
+                "safetyBackground.useFront": {
                     "type": "boolean",
                     "default": true,
                     "description": "If use front image,which means image is placed on the top of your code. 是否使用前景图，这样会使图片放在代码的顶部"
                 },
-                "background.style": {
+                "safetyBackground.style": {
                     "type": "object",
                     "default": {
                         "content": "''",
@@ -55,7 +55,7 @@
                     },
                     "description": "Custom common style.自定义各项公有样式."
                 },
-                "background.styles": {
+                "safetyBackground.styles": {
                     "type": "array",
                     "default": [
                         {},
@@ -64,15 +64,20 @@
                     ],
                     "description": "Each style of backgrounds. 每一个背景图的独有样式。"
                 },
-                "background.useDefault": {
+                "safetyBackground.useDefault": {
                     "type": "boolean",
                     "default": true,
                     "description": "Use default images.使用默认图片"
                 },
-                "background.customImages": {
+                "safetyBackground.customImages": {
                     "type": "array",
                     "default": [],
                     "description": "Your custom Images(Max length is 3). 自己定制背景图，最多3个"
+                },
+                "safetyBackground.safetyIPList": {
+                    "type": "array",
+                    "default": [],
+                    "description": "IP list in which environment the background image is shown"
                 }
             }
         }
@@ -89,5 +94,8 @@
         "vscode": "^1.1.5",
         "@types/node": "^7.0.43",
         "@types/mocha": "^2.2.42"
+    },
+    "dependencies": {
+        "axios": "^0.19.0"
     }
 }

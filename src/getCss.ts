@@ -34,10 +34,22 @@ function getStyleByOptions(options: object, useFront: boolean) {
  * @returns
  */
 export default function (arr: Array<string>, style = {}, styles = [], useFront = true) {
-    let [img0, img1, img2] = (arr && arr.length) ?
-        [encodeURI(arr[0] || 'none'),
-        encodeURI(arr[1] || 'none'),
-        encodeURI(arr[2] || 'none')] : defBase64;
+    const MIN_IMAGES = 6;
+    let imgs = [];
+    if (arr && arr.length) {
+        for(let imgUrl of arr) {
+            imgs.push(encodeURI(imgUrl) || 'none');
+        }
+    } else {
+        imgs = defBase64;
+    }
+
+    let originalImageNum = imgs.length;
+    if (MIN_IMAGES > originalImageNum) {
+        for (let index = 0; index < MIN_IMAGES - originalImageNum; index++) {
+            imgs.push(imgs[index]);
+        }
+    }
 
     let defStyle = getStyleByOptions(style, useFront); // 默认样式
     let [styel0, style1, style2] = [                   // 3个子项样式
@@ -54,13 +66,57 @@ export default function (arr: Array<string>, style = {}, styles = [], useFront =
 /*css-background-start*/
 /*background.ver.${version}*/
 
-[id="workbench.parts.editor"] .split-view-view:nth-child(1) .editor-container .overflow-guard>.monaco-scrollable-element${frontContent}{background-image: url('${img0}');${styel0}}
+body.vscode-background [id="workbench.parts.editor"] .split-view-view:nth-child(3) .editor-container .overflow-guard>.monaco-scrollable-element${frontContent}{background-image:  url('${imgs[0]}');${styel0}}
 
-[id="workbench.parts.editor"] .split-view-view:nth-child(2) .editor-container .overflow-guard>.monaco-scrollable-element${frontContent}{background-image: url('${img1}');${style1}}
+body.vscode-background [id="workbench.parts.editor"] .split-view-view:nth-child(2) .editor-container .overflow-guard>.monaco-scrollable-element${frontContent}{background-image:  url('${imgs[1]}');${style1}}
 
-[id="workbench.parts.editor"] .split-view-view:nth-child(3) .editor-container .overflow-guard>.monaco-scrollable-element${frontContent}{background-image: url('${img2}');${style2}}
+body.vscode-background [id="workbench.parts.editor"] .split-view-view:nth-child(1) .editor-container .overflow-guard>.monaco-scrollable-element${frontContent}{background-image:  url('${imgs[2]}');${style2}}
 
-[id="workbench.parts.editor"] .split-view-view .editor-container .overflow-guard>.monaco-scrollable-element>.monaco-editor-background{background: none;}
+body.vscode-background [id="workbench.parts.editor"] .split-view-view .editor-container .overflow-guard>.monaco-scrollable-element>.monaco-editor-background{background: none;}
+
+body.vscode-background .monaco-workbench .part.panel:after {
+    content: '';
+    background: url('${imgs[3]}') no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-position: right;
+    opacity: 0.2;
+    pointer-events: none;
+}
+
+/* side bar */
+body.vscode-background .explorer-folders-view:after{
+    content: '';
+    background: url("${imgs[4]}") no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-position: bottom;
+    opacity: 0.12;
+    pointer-events: none;
+}
+
+/* start screen */
+body.vscode-background .welcomePageContainer:after {
+    content: '';
+    background: url('${imgs[6]}') no-repeat;
+    background-size: contain;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-position: bottom;
+    opacity: 0.12;
+    pointer-events: none;
+}
 
 /*css-background-end*/
 `;

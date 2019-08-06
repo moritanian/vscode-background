@@ -9,6 +9,8 @@ const cssPath = path.join(base, 'vs', 'workbench', 'workbench.main.css');
 // electron 入口文件所在文件夹
 const indexDir = path.join(base, 'vs', 'workbench', 'electron-browser', 'bootstrap');
 
+const jsPath = path.join(base, 'vs', 'code', 'electron-browser', 'workbench', 'workbench.js');
+
 export default {
     /**
      * 基础目录
@@ -21,5 +23,6 @@ export default {
     /**
      * electron 入口文件所在文件夹
      */
-    indexDir
+    indexDir,
+    jsPath
 };
