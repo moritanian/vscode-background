@@ -85,7 +85,12 @@ You should use protocol **https** instead of **http** to the image,which is not 
 
 ---
 
-In ubuntu:[https://github.com/shalldie/vscode-background/issues/6](https://github.com/shalldie/vscode-background/issues/6).
+In ubuntu:
+permission of some files shold be changed by follwing commands.
+```
+sudo chmod o+rw /usr/share/code/resources/app/out/vs/workbench/workbench.main.css
+sudo chmod o+rw /usr/share/code/resources/app/out/vs/code/electron-browser/workbench/workbench.js
+```
 
 Press F1,and you can get it by enter **ext install background** in your vscode. (～￣ ▽ ￣)～
 <br />
